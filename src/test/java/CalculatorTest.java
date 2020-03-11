@@ -41,6 +41,15 @@ public class CalculatorTest {
     @Test(expected = NegativesNotAllowedException.class)
     public void shouldThrowNegativeNotAllowedException() throws NegativesNotAllowedException {
         cltr.add("1,-1");
+    }
 
+    @Test
+    public void shouldIgnoreNumbersBiggerOrEqualToThousand() throws NegativesNotAllowedException{
+        assertEquals(2, cltr.add("1000,2"));
+    }
+
+    @Test
+    public void shouldIgnoreNumbersBiggerOrEqualToThousand2() throws NegativesNotAllowedException{
+        assertEquals(10, cltr.add("1000,2,4000,1001,8"));
     }
 }

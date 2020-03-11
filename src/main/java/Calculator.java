@@ -19,8 +19,14 @@ public class Calculator {
 
         negativeNumbersCheck(numbersList);
 
+        numbersList = cleanFromNumbersGreaterOrEqualToThousand(numbersList, 1000);
+
         return numbersList.stream()
                 .reduce(0, Integer::sum);
+    }
+
+    private List<Integer> cleanFromNumbersGreaterOrEqualToThousand(List<Integer> numbersList, int i) {
+        return numbersList.stream().filter(integer -> integer < i).collect(Collectors.toList());
     }
 
     private void negativeNumbersCheck(List<Integer> numbersList) throws NegativesNotAllowedException {
