@@ -52,4 +52,14 @@ public class CalculatorTest {
     public void shouldIgnoreNumbersBiggerOrEqualToThousand2() throws NegativesNotAllowedException{
         assertEquals(10, cltr.add("1000,2,4000,1001,8"));
     }
+
+    @Test
+    public void shouldHandleCustomDelimiter() throws NegativesNotAllowedException{
+        assertEquals(6, cltr.add("//[***]//1***2***3"));
+    }
+
+    @Test
+    public void sholdHandleDifferentCustomDelimiter() throws NegativesNotAllowedException{
+        assertEquals(10, cltr.add("//[**+-]//5**+-2**+-3"));
+    }
 }
