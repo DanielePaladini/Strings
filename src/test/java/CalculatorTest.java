@@ -62,4 +62,14 @@ public class CalculatorTest {
     public void sholdHandleDifferentCustomDelimiter() throws NegativesNotAllowedException{
         assertEquals(10, cltr.add("//[**+-]//5**+-2**+-3"));
     }
+
+    @Test
+    public void  shouldHandleMultipleCustomDelimiters() throws NegativesNotAllowedException{
+        assertEquals(6, cltr.add("//[*][%]//1*2%3"));
+    }
+
+    @Test
+    public void shouldHandleMultipleCustomDelimeters_withDifferentLength() throws NegativesNotAllowedException{
+        assertEquals(10, cltr.add("//[*fR][+-+][HHH+++***]//1+-+2+-+3HHH+++***1*fR1+-+1+-+1"));
+    }
 }
