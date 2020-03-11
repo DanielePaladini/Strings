@@ -27,4 +27,13 @@ public class CalculatorTest {
         assertEquals(3, cltr.add("1,2"));
     }
 
+    @Test
+    public void shouldHandleThreeNumbers(){
+        assertEquals(6, cltr.add("1,2,3"));
+    }
+
+    @Test
+    public void shouldHandleAnyQuantityOfNumbers(){
+        assertEquals(16, cltr.add("1,2,4,2,7"));
+    }
 }
